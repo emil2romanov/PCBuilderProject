@@ -12,4 +12,13 @@ public class PeripheryEntity extends ProductEntity {
 
     @Enumerated(EnumType.STRING)
     private PeripheryTypeEnum type;
+
+    public PeripheryTypeEnum getType() {
+        return type;
+    }
+
+    public PeripheryEntity setType(PeripheryTypeEnum type) {
+        this.type = type;
+        return this;
+    }
 }

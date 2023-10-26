@@ -13,8 +13,10 @@ public class ProductEntity extends BaseEntity{
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
+    @Column(unique = true, nullable = false)
     @Enumerated(EnumType.STRING)
     private BrandEnum brand;
+
 
     public String getName() {
         return name;

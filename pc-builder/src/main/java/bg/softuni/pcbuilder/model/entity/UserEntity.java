@@ -1,8 +1,11 @@
 package bg.softuni.pcbuilder.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 
@@ -10,8 +13,15 @@ import java.util.List;
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
+    @Length(min = 3, max = 20)
+    @Column(unique = true, nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(unique = true, nullable = false)
+    @Email
     private String email;
 
     @OneToMany(mappedBy = "user")

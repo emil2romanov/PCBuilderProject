@@ -1,4 +1,4 @@
-package bg.softuni.pcbuilder.init;
+/*package bg.softuni.pcbuilder.init;
 
 import bg.softuni.pcbuilder.model.entity.ComponentEntity;
 import bg.softuni.pcbuilder.model.entity.PeripheryEntity;
@@ -55,4 +55,4 @@ public class DBInit implements CommandLineRunner {
             peripheryRepository.saveAll(peripherals);
         }
     }
-}
+}*/

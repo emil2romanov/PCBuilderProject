@@ -1,12 +1,10 @@
 package bg.softuni.pcbuilder.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,9 +23,6 @@ public class UserEntity extends BaseEntity {
     private String email;
 
     @OneToMany(mappedBy = "user")
-    private List<UserRoleEntity> roles;
-
-    @OneToMany(mappedBy = "user")
     private List<ComponentEntity> components;
 
     @OneToMany(mappedBy = "user")
@@ -35,6 +30,19 @@ public class UserEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<ComputerEntity> computers;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<UserRoleEntity> roles = new ArrayList<>();
+
+    public UserEntity addRole(UserRoleEntity role) {
+        this.roles.add(role);
+        return this;
+    }
+
+    public UserEntity getRole(UserRoleEntity role) {
+        this.roles.remove(role);
+        return this;
+    }
 
     public String getUsername() {
         return username;

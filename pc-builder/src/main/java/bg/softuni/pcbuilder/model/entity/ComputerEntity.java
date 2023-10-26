@@ -2,6 +2,8 @@ package bg.softuni.pcbuilder.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "computers")
 public class ComputerEntity extends BaseEntity{
@@ -9,37 +11,21 @@ public class ComputerEntity extends BaseEntity{
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "cpu_id")
-    private ComponentEntity cpu;
+    @ManyToMany
+    @JoinTable(
+            name = "computer_components",
+            joinColumns = @JoinColumn(name = "computer_id"),
+            inverseJoinColumns = @JoinColumn(name = "component_id")
+    )
+    private List<ComponentEntity> components;
 
-    @ManyToOne
-    @JoinColumn(name = "gpu_id")
-    private ComponentEntity gpu;
-
-    @ManyToOne
-    @JoinColumn(name = "ram_id")
-    private ComponentEntity ram;
-
-    @ManyToOne
-    @JoinColumn(name = "motherboard_id")
-    private ComponentEntity motherboard;
-
-    @ManyToOne
-    @JoinColumn(name = "ssd_id")
-    private ComponentEntity ssd;
-
-    @ManyToOne
-    @JoinColumn(name = "monitor_id")
-    private PeripheryEntity monitor;
-
-    @ManyToOne
-    @JoinColumn(name = "keyboard_id")
-    private PeripheryEntity keyboard;
-
-    @ManyToOne
-    @JoinColumn(name = "mouse_id")
-    private PeripheryEntity mouse;
+    @ManyToMany
+    @JoinTable(
+            name = "computer_peripherals",
+            joinColumns = @JoinColumn(name = "computer_id"),
+            inverseJoinColumns = @JoinColumn(name = "peripheral_id")
+    )
+    private List<PeripheryEntity> peripherals;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -54,75 +40,21 @@ public class ComputerEntity extends BaseEntity{
         return this;
     }
 
-    public ComponentEntity getCpu() {
-        return cpu;
+    public List<ComponentEntity> getComponents() {
+        return components;
     }
 
-    public ComputerEntity setCpu(ComponentEntity cpu) {
-        this.cpu = cpu;
+    public ComputerEntity setComponents(List<ComponentEntity> components) {
+        this.components = components;
         return this;
     }
 
-    public ComponentEntity getGpu() {
-        return gpu;
+    public List<PeripheryEntity> getPeripherals() {
+        return peripherals;
     }
 
-    public ComputerEntity setGpu(ComponentEntity gpu) {
-        this.gpu = gpu;
-        return this;
-    }
-
-    public ComponentEntity getRam() {
-        return ram;
-    }
-
-    public ComputerEntity setRam(ComponentEntity ram) {
-        this.ram = ram;
-        return this;
-    }
-
-    public ComponentEntity getMotherboard() {
-        return motherboard;
-    }
-
-    public ComputerEntity setMotherboard(ComponentEntity motherboard) {
-        this.motherboard = motherboard;
-        return this;
-    }
-
-    public ComponentEntity getSsd() {
-        return ssd;
-    }
-
-    public ComputerEntity setSsd(ComponentEntity ssd) {
-        this.ssd = ssd;
-        return this;
-    }
-
-    public PeripheryEntity getMonitor() {
-        return monitor;
-    }
-
-    public ComputerEntity setMonitor(PeripheryEntity monitor) {
-        this.monitor = monitor;
-        return this;
-    }
-
-    public PeripheryEntity getKeyboard() {
-        return keyboard;
-    }
-
-    public ComputerEntity setKeyboard(PeripheryEntity keyboard) {
-        this.keyboard = keyboard;
-        return this;
-    }
-
-    public PeripheryEntity getMouse() {
-        return mouse;
-    }
-
-    public ComputerEntity setMouse(PeripheryEntity mouse) {
-        this.mouse = mouse;
+    public ComputerEntity setPeripherals(List<PeripheryEntity> peripherals) {
+        this.peripherals = peripherals;
         return this;
     }
 

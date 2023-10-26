@@ -14,7 +14,7 @@ public class ComponentEntity extends ProductEntity {
     @Column(nullable = false)
     private String description;
 
-    private void setDescription(ComponentTypeEnum type) {
+    /*private void setDescription(ComponentTypeEnum type) {
         String description = "";
         switch (type) {
             case CPU -> description = "CPU (Central Processing Unit) serves as the brain of a computer, executing instructions from software and driving overall performance, with leading manufacturers like Intel and AMD shaping the landscape of modern computing.";
@@ -24,7 +24,7 @@ public class ComponentEntity extends ProductEntity {
             case SSD -> description = "SSD (Solid State Drive) offers rapid data storage and retrieval, replacing traditional hard drives with faster and more durable technology, and is provided by companies like Samsung and Crucial, enhancing system speed and responsiveness.";
         }
         this.description = description;
-    }
+    }*/
 
     public ComponentTypeEnum getType() {
         return type;
@@ -32,7 +32,7 @@ public class ComponentEntity extends ProductEntity {
 
     public ComponentEntity setType(ComponentTypeEnum type) {
         this.type = type;
-        setDescription(type);
+        //setDescription(type);
         return this;
     }
 }

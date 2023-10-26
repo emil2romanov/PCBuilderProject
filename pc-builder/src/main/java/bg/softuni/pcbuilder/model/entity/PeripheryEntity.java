@@ -15,7 +15,7 @@ public class PeripheryEntity extends ProductEntity {
     @Column(nullable = false)
     private String description;
 
-    private void setDescription(PeripheryTypeEnum type) {
+    /*private void setDescription(PeripheryTypeEnum type) {
         String description = "";
         switch (type) {
             case MONITOR -> description = "A monitor is a display device that showcases visual information from a computer, allowing users to interact with digital content.";
@@ -23,7 +23,7 @@ public class PeripheryEntity extends ProductEntity {
             case MOUSE -> description = "A mouse is a pointing device that enables users to control the on-screen cursor, making it an essential tool for navigating and interacting with graphical user interfaces.";
         }
         this.description = description;
-    }
+    }*/
 
     public PeripheryTypeEnum getType() {
         return type;
@@ -31,7 +31,7 @@ public class PeripheryEntity extends ProductEntity {
 
     public PeripheryEntity setType(PeripheryTypeEnum type) {
         this.type = type;
-        setDescription(type);
+        //setDescription(type);
         return this;
     }
 }

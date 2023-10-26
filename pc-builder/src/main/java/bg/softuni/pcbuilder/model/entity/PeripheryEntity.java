@@ -1,5 +1,6 @@
 package bg.softuni.pcbuilder.model.entity;
 
+import bg.softuni.pcbuilder.model.enums.PeripheryTypeEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

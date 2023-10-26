@@ -1,5 +1,6 @@
 package bg.softuni.pcbuilder.model.entity;
 
+import bg.softuni.pcbuilder.model.enums.BrandEnum;
 import jakarta.persistence.*;
 
 @MappedSuperclass

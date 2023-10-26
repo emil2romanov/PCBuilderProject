@@ -1,6 +1,8 @@
 package bg.softuni.pcbuilder.model.entity;
 
+import bg.softuni.pcbuilder.model.enums.UserRoleEnum;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 

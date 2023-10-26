@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name = "components")
 public class ComponentEntity extends ProductEntity {
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ComponentTypeEnum type;
 

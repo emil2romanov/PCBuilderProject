@@ -1,15 +1,13 @@
 package bg.softuni.pcbuilder.model.entity;
 
 import bg.softuni.pcbuilder.model.enums.UserRoleEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user_roles")
+@Table(name = "roles")
 public class UserRoleEntity extends BaseEntity {
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 

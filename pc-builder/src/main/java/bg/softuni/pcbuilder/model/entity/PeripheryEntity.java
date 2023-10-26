@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 @Table(name = "peripherals")
 public class PeripheryEntity extends ProductEntity {
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private PeripheryTypeEnum type;
 

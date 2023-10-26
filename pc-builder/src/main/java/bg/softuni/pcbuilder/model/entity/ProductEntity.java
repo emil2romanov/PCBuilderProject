@@ -6,14 +6,17 @@ import jakarta.persistence.*;
 @MappedSuperclass
 public class ProductEntity extends BaseEntity{
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String photo;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private BrandEnum brand;
 
